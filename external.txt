@@ -1,0 +1,8 @@
+"anthropics/claude-plugins-official"
+"dietrichgebert/ponytail"
+"cathrynlavery/diagram-design"
+"blader/humanizer"
+"addyosmani/agent-skills"
+"obra/superpowers"
+"uditgoenka/autoresearch"
+"humanlayer/skills"
