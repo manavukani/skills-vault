@@ -1,6 +1,6 @@
 # Prompt: bootstrap a docs-first, multi-repo context workspace
 
-Copy everything below the line (until [Future Scope ⚠️](#Future-Scope)) into a fresh Claude Code session started in the **workspace root** (the directory that holds all your team's repo checkouts side by side).
+Copy everything below the line (until [Future Scope ⚠️](#future-scope)) into a fresh Claude Code session started in the **workspace root** (the directory that holds all your team's repo checkouts side by side).
 
 ---
 
