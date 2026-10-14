@@ -1,0 +1,7 @@
+{
+  "name": "my-mods",
+  "owner": { "name": "mukani" },
+  "plugins": [
+    { "name": "side-chat", "source": "./side-chat", "description": "/btw opens a side-chat pane instead of printing into the transcript." }
+  ]
+}

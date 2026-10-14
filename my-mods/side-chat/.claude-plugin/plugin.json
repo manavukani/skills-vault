@@ -1,0 +1,6 @@
+{
+  "name": "side-chat",
+  "version": "0.1.0",
+  "description": "/btw opens a side-chat pane (like Claude Code desktop) instead of printing into the transcript.",
+  "types": "./types/index.d.ts"
+}
