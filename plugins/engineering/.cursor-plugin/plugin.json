@@ -1,5 +1,5 @@
 {
   "name": "engineering",
   "version": "1.0.0",
-  "description": "Repo audit, interactive diff explainers, scout and critic agents"
+  "description": "Repo audit, multi-repo docs bootstrap, orchestration, explain-diff, scout and critic"
 }

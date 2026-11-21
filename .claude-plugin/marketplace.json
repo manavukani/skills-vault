@@ -8,7 +8,7 @@
     {
       "name": "writing-modes",
       "source": "./plugins/writing-modes",
-      "description": "ADHD-friendly output, plain English, teach-me, plain-mode, and onion-method"
+      "description": "Systems-architect persona, ADHD output, plain English, teach-me, plain-mode, onion-method"
     },
     {
       "name": "thinking",
@@ -18,7 +18,7 @@
     {
       "name": "engineering",
       "source": "./plugins/engineering",
-      "description": "Repo audit, interactive diff explainers, scout and critic agents"
+      "description": "Repo audit, multi-repo docs bootstrap, orchestration, explain-diff, scout and critic"
     },
     {
       "name": "side-chat",
