@@ -1,0 +1,29 @@
+{
+  "name": "skills-vault",
+  "owner": { "name": "manavukani" },
+  "metadata": {
+    "description": "Writing modes, thinking tools, engineering agents, and Claude Code mods"
+  },
+  "plugins": [
+    {
+      "name": "writing-modes",
+      "source": "./plugins/writing-modes",
+      "description": "ADHD-friendly output, plain English, teach-me, plain-mode, and onion-method"
+    },
+    {
+      "name": "thinking",
+      "source": "./plugins/thinking",
+      "description": "Deepen prompts and first-principles problem solving"
+    },
+    {
+      "name": "engineering",
+      "source": "./plugins/engineering",
+      "description": "Repo audit, interactive diff explainers, scout and critic agents"
+    },
+    {
+      "name": "side-chat",
+      "source": "./plugins/side-chat",
+      "description": "/btw opens a side-chat pane instead of printing into the transcript"
+    }
+  ]
+}
