@@ -48,6 +48,7 @@ Repos and plugins used alongside this vault:
 | [blader/humanizer](https://github.com/blader/humanizer) | Humanizer |
 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | Diagram design |
 | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) | Ponytail |
+| [trailofbits/skills](https://github.com/trailofbits/skills) | Trail of Bits skills |
 
 ```text
 /plugin marketplace add anthropics/claude-plugins-official
@@ -58,6 +59,7 @@ Repos and plugins used alongside this vault:
 /plugin marketplace add blader/humanizer
 /plugin marketplace add cathrynlavery/diagram-design
 /plugin marketplace add dietrichgebert/ponytail
+/plugin marketplace add trailofbits/skills
 ```
 
 ## Verify
