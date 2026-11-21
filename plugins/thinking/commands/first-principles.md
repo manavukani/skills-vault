@@ -1,4 +1,5 @@
 ---
+name: first-principles
 description: First-principles thinking partner. Decompose a problem to its fundamentals, challenge assumptions, rebuild solutions bottom-up, interactively.
 argument-hint: <problem or decision to think through>
 ---

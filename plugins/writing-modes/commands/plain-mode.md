@@ -1,4 +1,5 @@
 ---
+name: plain-mode
 description: Plain-writing mode for the rest of the session. All prose to the human follows ~80% of ASD-STE100 Simplified Technical English. Short, clear, no jargon, no padding.
 argument-hint: "[optional: strict | lite]"
 ---

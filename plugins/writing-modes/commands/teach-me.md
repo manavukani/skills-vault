@@ -1,4 +1,5 @@
 ---
+name: teach-me
 description: Teaching mode for the rest of the session. Keeps the human in the loop on what is happening, stage by stage, and does not let the session end until they have shown they understand it.
 argument-hint: "[optional: topic or task focus]"
 ---

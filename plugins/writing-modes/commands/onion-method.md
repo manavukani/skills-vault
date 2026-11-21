@@ -1,4 +1,5 @@
 ---
+name: onion-method
 description: Thought organizer. Peel a messy thought to its core, organize the logic, and wrap it for the right audience and medium.
 argument-hint: <rough thoughts, notes, or draft>
 ---

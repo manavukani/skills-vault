@@ -1,4 +1,5 @@
 ---
+name: deepen
 description: Make a task deeper, not bigger. Rewrites your prompt around expert practice, raw sources, real methods, and external verification.
 argument-hint: <the task or prompt to deepen>
 ---

@@ -1,4 +1,5 @@
 ---
+name: audit-repo
 description: Time-boxed security audit of an untrusted public repo, browser extension, or Claude skill/plugin before installing or running it
 argument-hint: "[path|git-url] [minutes, default 2]"
 allowed-tools: Bash, Read, Grep, Glob
