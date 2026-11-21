@@ -1,0 +1,9 @@
+{
+  "name": "security",
+  "version": "1.0.0",
+  "description": "Security audits: time-boxed untrusted-repo audit (audit-repo) and insecure-defaults workflow (fallback secrets, fail-open, weak crypto, permissive access, debug leakage).",
+  "author": {
+    "name": "manavukani",
+    "url": "https://github.com/manavukani"
+  }
+}

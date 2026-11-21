@@ -4,7 +4,7 @@
     "name": "manavukani"
   },
   "metadata": {
-    "description": "Writing modes, thinking tools, engineering agents, code-improver, and Claude Code mods"
+    "description": "Writing modes, thinking, engineering, security, code-improver, and Claude Code mods"
   },
   "plugins": [
     {
@@ -20,7 +20,12 @@
     {
       "name": "engineering",
       "source": "./plugins/engineering",
-      "description": "Repo audit, multi-repo docs bootstrap, orchestration, explain-diff, scout and critic"
+      "description": "Multi-repo docs bootstrap, orchestration, explain-diff, scout and critic"
+    },
+    {
+      "name": "security",
+      "source": "./plugins/security",
+      "description": "Untrusted-repo audit and insecure-defaults workflow"
     },
     {
       "name": "side-chat",

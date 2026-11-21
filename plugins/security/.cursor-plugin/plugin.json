@@ -1,0 +1,9 @@
+{
+  "name": "security",
+  "version": "1.0.0",
+  "description": "Security audits: time-boxed untrusted-repo audit (audit-repo). Insecure-defaults workflow requires Claude Code.",
+  "author": {
+    "name": "manavukani",
+    "url": "https://github.com/manavukani"
+  }
+}

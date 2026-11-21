@@ -26,6 +26,7 @@ assert {p["name"] for p in claude["plugins"]} == {
     "writing-modes",
     "thinking",
     "engineering",
+    "security",
     "code-improver",
     "side-chat",
 }
@@ -33,6 +34,7 @@ assert {p["name"] for p in cursor["plugins"]} == {
     "writing-modes",
     "thinking",
     "engineering",
+    "security",
 }
 
 assert (root / "plugins/writing-modes/skills/i-have-adhd/SKILL.md").is_file()
@@ -42,10 +44,12 @@ assert (root / "plugins/writing-modes/commands/systems-architect.md").is_file()
 assert (root / "plugins/thinking/commands/deepen.md").is_file()
 assert (root / "plugins/engineering/agents/scout.md").is_file()
 assert (root / "plugins/engineering/agents/critic.md").is_file()
-assert (root / "plugins/engineering/commands/audit-repo.md").is_file()
 assert (root / "plugins/engineering/commands/setup-multi-repo.md").is_file()
 assert (root / "plugins/engineering/skills/explain-diff-html/SKILL.md").is_file()
 assert (root / "plugins/engineering/skills/orchestration/SKILL.md").is_file()
+assert (root / "plugins/security/commands/audit-repo.md").is_file()
+assert (root / "plugins/security/commands/audit-insecure-defaults.md").is_file()
+assert (root / "plugins/security/workflows/audit.js").is_file()
 assert (root / "plugins/side-chat/.claude-plugin/plugin.json").is_file()
 assert (root / "plugins/code-improver/.claude-plugin/plugin.json").is_file()
 assert (root / "plugins/code-improver/workflows/improve.js").is_file()

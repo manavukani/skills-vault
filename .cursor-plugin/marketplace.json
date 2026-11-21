@@ -1,8 +1,10 @@
 {
   "name": "skills-vault",
-  "owner": { "name": "manavukani" },
+  "owner": {
+    "name": "manavukani"
+  },
   "metadata": {
-    "description": "Writing modes, thinking tools, and engineering agents for Cursor"
+    "description": "Writing modes, thinking, engineering, and security plugins for Cursor"
   },
   "plugins": [
     {
@@ -18,7 +20,12 @@
     {
       "name": "engineering",
       "source": "./plugins/engineering",
-      "description": "Repo audit, multi-repo docs bootstrap, orchestration, explain-diff, scout and critic"
+      "description": "Multi-repo docs bootstrap, orchestration, explain-diff, scout and critic"
+    },
+    {
+      "name": "security",
+      "source": "./plugins/security",
+      "description": "Untrusted-repo audit (audit-repo); insecure-defaults needs Claude Code"
     }
   ]
 }
