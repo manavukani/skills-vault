@@ -49,6 +49,9 @@ Repos and plugins used alongside this vault:
 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | Diagram design |
 | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) | Ponytail |
 | [trailofbits/skills](https://github.com/trailofbits/skills) | Trail of Bits skills |
+| [cursor/plugins — pstack](https://github.com/cursor/plugins/tree/main/pstack) | Cursor official pstack (install via `cursor/plugins` marketplace) |
+| [michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude) | Claude Code port of pstack |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | Matt Pocock skills |
 
 ```text
 /plugin marketplace add anthropics/claude-plugins-official
@@ -60,6 +63,8 @@ Repos and plugins used alongside this vault:
 /plugin marketplace add cathrynlavery/diagram-design
 /plugin marketplace add dietrichgebert/ponytail
 /plugin marketplace add trailofbits/skills
+/plugin marketplace add mattpocock/skills
+/plugin marketplace add michael-denyer/pstack-claude
 ```
 
 ## Verify
