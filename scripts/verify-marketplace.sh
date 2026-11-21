@@ -26,6 +26,7 @@ assert {p["name"] for p in claude["plugins"]} == {
     "writing-modes",
     "thinking",
     "engineering",
+    "code-improver",
     "side-chat",
 }
 assert {p["name"] for p in cursor["plugins"]} == {
@@ -46,5 +47,8 @@ assert (root / "plugins/engineering/commands/setup-multi-repo.md").is_file()
 assert (root / "plugins/engineering/skills/explain-diff-html/SKILL.md").is_file()
 assert (root / "plugins/engineering/skills/orchestration/SKILL.md").is_file()
 assert (root / "plugins/side-chat/.claude-plugin/plugin.json").is_file()
+assert (root / "plugins/code-improver/.claude-plugin/plugin.json").is_file()
+assert (root / "plugins/code-improver/workflows/improve.js").is_file()
+assert (root / "plugins/code-improver/skills/code-improver/SKILL.md").is_file()
 print("OK")
 PY

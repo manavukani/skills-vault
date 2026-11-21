@@ -1,8 +1,10 @@
 {
   "name": "skills-vault",
-  "owner": { "name": "manavukani" },
+  "owner": {
+    "name": "manavukani"
+  },
   "metadata": {
-    "description": "Writing modes, thinking tools, engineering agents, and Claude Code mods"
+    "description": "Writing modes, thinking tools, engineering agents, code-improver, and Claude Code mods"
   },
   "plugins": [
     {
@@ -24,6 +26,11 @@
       "name": "side-chat",
       "source": "./plugins/side-chat",
       "description": "/btw opens a side-chat pane instead of printing into the transcript"
+    },
+    {
+      "name": "code-improver",
+      "source": "./plugins/code-improver",
+      "description": "Autonomous review-and-fix loop with pluggable reviewer, ledger, and scope guard (Claude workflows)"
     }
   ]
 }
