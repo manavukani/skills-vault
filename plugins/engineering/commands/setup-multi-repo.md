@@ -2,6 +2,7 @@
 name: setup-multi-repo
 description: Bootstrap a docs-first multi-repo context workspace with gated phases, handbooks, dependency map, and VERIFIED.md. Run from the workspace root that holds sibling repo checkouts.
 argument-hint: "[optional: <TEAM> name]"
+disable-model-invocation: true
 ---
 
 # Setup multi-repo workspace
