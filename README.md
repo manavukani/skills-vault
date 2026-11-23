@@ -8,7 +8,7 @@ Marketplace of agent plugins for Claude Code and Cursor.
 |--------|--------------|--------|--------|
 | `writing-modes` | systems-architect, ADHD output, plain English, teach-me, plain-mode, onion-method | yes | yes |
 | `thinking` | deepen, first-principles | yes | yes |
-| `engineering` | setup-multi-repo, explain-diff-html, orchestration, scout, critic | yes | yes |
+| `engineering` | setup-multi-repo, explain-diff-html, orchestration, verify-this, scout, critic | yes | yes |
 | `security` | audit-repo; audit-insecure-defaults (Claude workflows) | yes | yes* |
 | `code-improver` | skill/pr/code improver loop (`/code-improver:improve`); defaults to `engineering:critic` | yes | no |
 | `side-chat` | `/btw` side-chat pane | yes | no |

@@ -20,7 +20,7 @@
     {
       "name": "engineering",
       "source": "./plugins/engineering",
-      "description": "Multi-repo docs bootstrap, orchestration, explain-diff, scout and critic"
+      "description": "Multi-repo docs bootstrap, orchestration, explain-diff, verify-this, scout and critic"
     },
     {
       "name": "security",
