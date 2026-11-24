@@ -20,7 +20,7 @@
     {
       "name": "engineering",
       "source": "./plugins/engineering",
-      "description": "Multi-repo docs bootstrap, orchestration, explain-diff, verify-this, thermo-nuclear-code-quality-review, review-and-ship, daily-review, weekly-review, scout and critic"
+      "description": "Multi-repo docs bootstrap, orchestration, explain-diff, verify-this, thermo-nuclear-code-quality-review, review-and-ship, mr-review-canvas, daily-review, weekly-review, scout and critic"
     },
     {
       "name": "security",
