@@ -59,6 +59,7 @@ Repos and plugins used alongside this vault:
 | [cursor/plugins — pstack](https://github.com/cursor/plugins/tree/main/pstack) | Cursor official pstack (install via `cursor/plugins` marketplace) |
 | [michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude) | Claude Code port of pstack |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | Matt Pocock skills |
+| [trailofbits/skills](https://github.com/trailofbits/skills) | Trail of Bits security skills |
 
 ```text
 /plugin marketplace add anthropics/claude-plugins-official
@@ -71,6 +72,7 @@ Repos and plugins used alongside this vault:
 /plugin marketplace add dietrichgebert/ponytail
 /plugin marketplace add mattpocock/skills
 /plugin marketplace add michael-denyer/pstack-claude
+/plugin marketplace add trailofbits/skills
 ```
 
 ## Verify
