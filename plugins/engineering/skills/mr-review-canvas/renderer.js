@@ -168,3 +168,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+
+/* Generic interactions. Markup contract:
+   .vg[data-state]  wraps a view group.
+   .seg/.tabs buttons carry data-v="<state>"; matching .vpanel[data-v] show, others hide.
+   [data-in="<state>"] elements show only in that state; [data-ghost-in="<state>"] get .ghost in it.
+   .step click toggles .active. */
+function setView(vg, v) {
+  vg.setAttribute('data-state', v);
+  vg.querySelectorAll('.seg button, .tabs button').forEach(function(b) { b.classList.toggle('on', b.getAttribute('data-v') === v); });
+  vg.querySelectorAll('.vpanel[data-v]').forEach(function(p) { p.classList.toggle('hidden', p.getAttribute('data-v') !== v); });
+  vg.querySelectorAll('[data-in]').forEach(function(e) { e.classList.toggle('hidden', e.getAttribute('data-in') !== v); });
+  vg.querySelectorAll('[data-ghost-in]').forEach(function(e) { e.classList.toggle('ghost', e.getAttribute('data-ghost-in') === v); });
+}
+document.addEventListener('click', function(ev) {
+  var b = ev.target.closest('.seg button, .tabs button');
+  if (b && b.hasAttribute('data-v')) { var vg = b.closest('.vg'); if (vg) setView(vg, b.getAttribute('data-v')); return; }
+  var s = ev.target.closest('.step');
+  if (s) s.classList.toggle('active');
+});
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.vg').forEach(function(vg) {
+    var on = vg.querySelector('.seg button.on, .tabs button.on') || vg.querySelector('.seg button, .tabs button');
+    if (on) setView(vg, on.getAttribute('data-v'));
+  });
+});
+
+/* Checklist: .chk > label > input[type=checkbox] + span ; optional .chk > .prog > i. State persists in localStorage when available. */
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.chk').forEach(function(box, bi) {
+    var key = 'mrc:' + location.pathname + ':' + bi, saved = {};
+    try { saved = JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) {}
+    var boxes = box.querySelectorAll('input[type=checkbox]'), bar = box.querySelector('.prog i');
+    function sync() {
+      var done = 0, st = {};
+      boxes.forEach(function(c, i) { if (c.checked) { done++; st[i] = 1; } });
+      if (bar) bar.style.width = (boxes.length ? 100 * done / boxes.length : 0) + '%';
+      try { localStorage.setItem(key, JSON.stringify(st)); } catch (e) {}
+    }
+    boxes.forEach(function(c, i) { c.checked = !!saved[i]; c.addEventListener('change', sync); });
+    sync();
+  });
+});

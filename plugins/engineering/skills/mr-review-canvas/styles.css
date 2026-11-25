@@ -94,3 +94,109 @@ tr.diff-moved-add-edited .diff-code { background: #2b0160; color: #d1d5ff; }
 .verdict ul { padding-left: 18px; }
 .verdict li { font-size: 13px; margin-bottom: 6px; line-height: 1.5; }
 .verdict li strong { color: var(--text-bright); }
+
+/* ---- Visual components (use where they fit; see SKILL.md "Visual toolkit") ---- */
+:root { --moved: #008cff; --modified: #6c47ff; --purple-text: #a19dff; }
+.grid { display: grid; gap: 12px; margin: 12px 0; }
+.g2 { grid-template-columns: repeat(2, 1fr); } .g3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 720px) { .g2, .g3 { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; }
+.card h4 { font-size: 12px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; }
+.card.add { border-top: 3px solid var(--success); } .card.del { border-top: 3px solid var(--danger); }
+.card.moved { border-top: 3px solid var(--moved); } .card.mod { border-top: 3px solid var(--modified); }
+.card.warn { border-top: 3px solid var(--warning); }
+.tag { display: inline-block; font: 500 10px 'IBM Plex Mono', monospace; padding: 1px 6px; border-radius: 3px; border: 1px solid currentColor; margin-right: 6px; vertical-align: 1px; }
+.tag.add { color: var(--success); } .tag.del { color: var(--danger); } .tag.moved { color: var(--accent); }
+.tag.mod { color: var(--purple-text); } .tag.warn { color: var(--warning); } .tag.muted { color: var(--text-muted); }
+.callout { border-left: 3px solid var(--accent); background: #00266655; padding: 8px 12px; border-radius: 4px; margin: 10px 0; font-size: 12.5px; }
+.callout.warn { border-color: var(--warning); background: #65240055; } .callout.danger { border-color: var(--danger); background: #66002c55; }
+.callout.ok { border-color: var(--success); background: #00331155; }
+.stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+.stat { flex: 1; min-width: 110px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; }
+.stat b { display: block; font-size: 20px; color: var(--text-bright); font-weight: 600; } .stat span { font-size: 11px; color: var(--text-muted); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: var(--text-muted); margin: 8px 0; }
+.legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; background: var(--c, var(--accent)); }
+/* Field row: one schema field / config key / param. Modifiers: .add .del .moved .mod */
+.field { display: flex; justify-content: space-between; gap: 8px; font: 12px 'IBM Plex Mono', monospace; padding: 4px 8px; margin: 3px 0; border-radius: 4px; background: var(--bg); border: 1px solid transparent; transition: opacity .3s, border-color .3s; }
+.field .why { font: 11px Inter, sans-serif; color: var(--text-muted); }
+.field.add { border-color: var(--success); } .field.del { border-color: var(--danger); } .field.moved { border-color: var(--moved); } .field.mod { border-color: var(--modified); }
+.field.ghost { opacity: .3; text-decoration: line-through; }
+/* Segmented control + tabs (drive .vpanel / [data-in] inside the nearest .vg) */
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; margin-bottom: 10px; }
+.seg button { background: transparent; color: var(--text-muted); border: 0; padding: 5px 14px; cursor: pointer; font: inherit; font-size: 12px; }
+.seg button.on { background: var(--accent); color: var(--surface); font-weight: 600; }
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--border); margin-bottom: 10px; }
+.tabs button { background: transparent; color: var(--text-muted); border: 0; border-bottom: 2px solid transparent; padding: 6px 12px; cursor: pointer; font: inherit; font-size: 12px; }
+.tabs button.on { color: var(--text-bright); border-bottom-color: var(--accent); }
+.vpanel.hidden, [data-in].hidden { display: none; }
+/* Click-to-expand steps (flows, request paths, migration order) */
+.steps { counter-reset: s; margin: 10px 0; }
+.step { display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); margin-bottom: 6px; cursor: pointer; }
+.step::before { counter-increment: s; content: counter(s); font: 600 14px 'IBM Plex Mono', monospace; color: var(--accent); }
+.step.active { border-color: var(--accent); background: #00266644; }
+.step .detail { display: none; margin-top: 6px; font-size: 12px; color: var(--text-muted); } .step.active .detail { display: block; }
+table.cmp { width: 100%; border-collapse: collapse; font-size: 12px; margin: 10px 0; }
+table.cmp th { text-align: left; color: var(--text-muted); font-weight: 500; padding: 4px 8px; border-bottom: 1px solid var(--border); }
+table.cmp td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+/* ---- Second batch: contract diff, file tree, heatmap, state machine, decision table, blast radius, order rail, fallback list, checklist ---- */
+.tag.src { color: var(--warning); border-style: dashed; }
+/* Contract diff: old vs new keys. .crow.add/.del/.mod; --d = indent depth */
+.cdiff { border: 1px solid var(--border); border-radius: 6px; margin: 10px 0; font: 12px 'IBM Plex Mono', monospace; overflow: hidden; }
+.cdiff .crow { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 8px; padding: 3px 10px; border-bottom: 1px solid var(--border); background: var(--bg); }
+.cdiff .crow:last-child { border-bottom: 0; }
+.cdiff .crow.head { background: var(--surface-raised); color: var(--text-muted); font-family: Inter, sans-serif; font-size: 11px; }
+.cdiff .k { padding-left: calc(var(--d, 0) * 16px); color: var(--text-bright); }
+.cdiff .crow.add { background: #003311; } .cdiff .crow.del { background: #330016; } .cdiff .crow.mod { background: #2b0160; }
+.cdiff .crow.del .k { text-decoration: line-through; }
+/* File tree */
+.ftree { border: 1px solid var(--border); border-radius: 6px; background: var(--surface); padding: 6px 10px; margin: 10px 0; font: 12px 'IBM Plex Mono', monospace; }
+.ftree details { margin-left: 14px; } .ftree > details { margin-left: 0; }
+.ftree summary { cursor: pointer; color: var(--text-muted); padding: 2px 0; }
+.ftree a.ffile { display: grid; grid-template-columns: 1fr 120px 70px; gap: 8px; align-items: center; padding: 2px 0 2px 14px; color: var(--accent); text-decoration: none; }
+.ftree a.ffile:hover { background: var(--surface-raised); }
+.ftree a.ffile.mech { color: var(--text-muted); }
+.ftree .bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--bg); }
+.ftree .bar i:first-child { background: var(--success); width: var(--a, 0%); } .ftree .bar i:last-child { background: var(--danger); width: var(--r, 0%); }
+.ftree .n { color: var(--text-muted); font-size: 11px; text-align: right; }
+/* Churn heatmap: flex-grow = lines changed, --i = intensity 0-100 */
+.heat { display: flex; flex-wrap: wrap; gap: 3px; margin: 10px 0; min-height: 90px; }
+.heat a { flex: var(--w, 1) 1 60px; min-height: 48px; padding: 4px 6px; border-radius: 4px; font: 11px 'IBM Plex Mono', monospace; color: var(--text-bright); text-decoration: none; overflow: hidden;
+  background: color-mix(in srgb, var(--accent) calc(var(--i, 10) * 1%), var(--surface)); border: 1px solid var(--border); }
+.heat a.mech { background: var(--surface); color: var(--text-muted); } .heat a:hover { border-color: var(--accent); }
+/* State machine (inline SVG). Mark states .node(.new/.gone), arrows .edge(.new/.old/.gone) */
+svg.sm { width: 100%; max-width: 720px; display: block; margin: 10px 0; font: 11px 'IBM Plex Mono', monospace; }
+svg.sm .node rect { fill: var(--surface); stroke: var(--border); } svg.sm .node text { fill: var(--text); }
+svg.sm .node.new rect { stroke: var(--success); } svg.sm .node.gone rect { stroke: var(--danger); stroke-dasharray: 4 3; }
+svg.sm .edge { stroke: var(--text-muted); fill: none; } svg.sm .edge.new { stroke: var(--success); stroke-width: 2; }
+svg.sm .edge.gone { stroke: var(--danger); stroke-dasharray: 4 3; } svg.sm .lbl { fill: var(--text-muted); }
+/* Decision table: td.chg shows <s>old</s> new */
+table.dt { width: 100%; border-collapse: collapse; font-size: 12px; margin: 10px 0; }
+table.dt th, table.dt td { border: 1px solid var(--border); padding: 5px 8px; text-align: left; vertical-align: top; }
+table.dt th { background: var(--surface-raised); color: var(--text-bright); font-weight: 500; }
+table.dt td.chg { background: #2b016066; } table.dt td.chg s { color: var(--danger); margin-right: 6px; } table.dt td.chg b { color: var(--success); font-weight: 500; }
+/* Blast radius: one .hub, several .spoke (a consumer or dependency, cited from the diff) */
+.blast { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 14px; align-items: center; margin: 12px 0; }
+.blast .hub { grid-column: 2; grid-row: 1 / span 3; border: 2px solid var(--accent); background: #00266644; border-radius: 8px; padding: 14px; text-align: center; color: var(--text-bright); }
+.blast .spoke { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; font-size: 12px; }
+.blast .spoke.in { grid-column: 1; } .blast .spoke.out { grid-column: 3; }
+.blast .spoke.in::after { content: "→ consumes"; display: block; color: var(--text-muted); font-size: 10.5px; margin-top: 4px; }
+.blast .spoke.out::after { content: "← called by this MR"; display: block; color: var(--text-muted); font-size: 10.5px; margin-top: 4px; }
+@media (max-width: 720px) { .blast { grid-template-columns: 1fr; } .blast .hub, .blast .spoke.in, .blast .spoke.out { grid-column: 1; grid-row: auto; } }
+/* Order rail: merge/release/deploy/migrate. .rstep.door = one-way door */
+.rail { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.rail .rstep { flex: 1; min-width: 140px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; font-size: 12px; position: relative; }
+.rail .rstep b { display: block; color: var(--text-bright); margin-bottom: 2px; }
+.rail .rstep:not(:last-child)::after { content: "→"; position: absolute; right: -9px; top: 8px; color: var(--text-muted); }
+.rail .rstep.door { border-color: var(--danger); background: #66002c33; } .rail .rstep.door::before { content: "ONE-WAY"; display: block; font: 600 9.5px 'IBM Plex Mono', monospace; color: var(--danger); margin-bottom: 2px; }
+/* Fallback / risk finding list */
+.fb { border: 1px solid var(--border); border-radius: 6px; margin: 10px 0; overflow: hidden; }
+.fb .row { display: grid; grid-template-columns: 14px 1fr; gap: 10px; padding: 8px 12px; border-bottom: 1px solid var(--border); background: var(--surface); font-size: 12.5px; }
+.fb .row:last-child { border-bottom: 0; }
+.fb .sev { width: 9px; height: 9px; border-radius: 50%; margin-top: 5px; background: var(--text-muted); }
+.fb .sev.high { background: var(--danger); } .fb .sev.med { background: var(--warning); } .fb .sev.low { background: var(--accent); }
+.fb .loc { font: 11px 'IBM Plex Mono', monospace; color: var(--accent); display: block; margin-bottom: 2px; }
+/* Checklist with persistent state */
+.chk { margin: 10px 0; } .chk label { display: flex; gap: 8px; align-items: flex-start; padding: 5px 0; font-size: 13px; cursor: pointer; }
+.chk input:checked + span { color: var(--text-muted); text-decoration: line-through; }
+.chk .prog { height: 4px; background: var(--bg); border-radius: 2px; overflow: hidden; margin-bottom: 8px; } .chk .prog i { display: block; height: 100%; width: 0; background: var(--success); transition: width .2s; }
